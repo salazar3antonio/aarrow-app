@@ -1,13 +1,13 @@
 package com.example.aarrowapp.ui.main
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.aarrowapp.R
 
-public class MainEmployeeFragment : Fragment() {
+public class MainEmployeeFragment : androidx.fragment.app.Fragment() {
 
     //newInstance w/ bundle for this Fragment
     //RecyclerView of Employee list items

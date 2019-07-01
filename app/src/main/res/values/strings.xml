@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">AArrow App</string>
-    <string name="tab_text_1">Employees</string>
-    <string name="tab_text_2">Schedule</string>
+    <string name="tab_main_employees">Employees</string>
+    <string name="tab_main_schedule">Schedule</string>
 </resources>
