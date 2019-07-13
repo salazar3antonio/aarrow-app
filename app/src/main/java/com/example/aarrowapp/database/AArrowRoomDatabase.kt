@@ -1,14 +1,18 @@
-package com.example.aarrowapp.data.models
+package com.example.aarrowapp.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.aarrowapp.database.models.AuditEntity
+import com.example.aarrowapp.database.models.EmployeeEntity
 
-@Database(entities = [Employee::class, Audit::class], version = 1)
+@Database(entities = [EmployeeEntity::class, AuditEntity::class], version = 1)
 abstract class AArrowRoomDatabase : RoomDatabase() {
 
+    //abstract "getter" method for each @Dao
     abstract fun employeeDao(): EmployeeDao
+    abstract fun auditDao(): AuditDao
 
     companion object {
         @Volatile
@@ -23,7 +27,7 @@ abstract class AArrowRoomDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AArrowRoomDatabase::class.java,
-                    "AArrow_database"
+                    "aarrow_database"
                 ).build()
                 INSTANCE = instance
                 return instance

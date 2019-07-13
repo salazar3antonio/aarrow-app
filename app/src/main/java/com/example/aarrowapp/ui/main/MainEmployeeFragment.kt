@@ -10,7 +10,7 @@ import com.example.aarrowapp.R
 public class MainEmployeeFragment : androidx.fragment.app.Fragment() {
 
     //newInstance w/ bundle for this Fragment
-    //RecyclerView of Employee list items
+    //RecyclerView of EmployeeEntity list items
     //Adapter of Employees List. Should be from Room DB
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
