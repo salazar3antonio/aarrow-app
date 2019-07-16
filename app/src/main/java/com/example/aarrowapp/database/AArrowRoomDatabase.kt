@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.aarrowapp.database.daos.AuditDao
+import com.example.aarrowapp.database.daos.EmployeeDao
 import com.example.aarrowapp.database.models.AuditEntity
 import com.example.aarrowapp.database.models.EmployeeEntity
 
