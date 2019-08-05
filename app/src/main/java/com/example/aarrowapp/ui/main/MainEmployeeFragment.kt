@@ -1,17 +1,24 @@
 package com.example.aarrowapp.ui.main
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.EmployeeListAdapter
+import com.example.aarrowapp.MainActivity
+import com.example.aarrowapp.MainActivity.Companion.newEmployeeRequestCode
+import com.example.aarrowapp.NewEmployeeActivity.Companion.EXTRA_EMPLOYEE_NAME
 import com.example.aarrowapp.R
 import com.example.aarrowapp.database.EmployeeViewModel
+import com.example.aarrowapp.database.models.EmployeeEntity
 
 public class MainEmployeeFragment : androidx.fragment.app.Fragment() {
 
@@ -34,6 +41,25 @@ public class MainEmployeeFragment : androidx.fragment.app.Fragment() {
         })
 
         return view
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == newEmployeeRequestCode && resultCode == Activity.RESULT_OK) {
+            data?.let {
+                val employee = EmployeeEntity(
+                    null, it.getStringExtra(EXTRA_EMPLOYEE_NAME),
+                    null, null, null,
+                    null, null, null,
+                    null, null
+                )
+                employeeViewModel.insert(employee)
+                Toast.makeText(this.context, "Employee " + employee.employeeName + " saved.", Toast.LENGTH_LONG).show()
+            }
+        } else {
+            Toast.makeText(this.context, "Employee not saved.", Toast.LENGTH_LONG).show()
+        }
+
     }
 
     companion object {

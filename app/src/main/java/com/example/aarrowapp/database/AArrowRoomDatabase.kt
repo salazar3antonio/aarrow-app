@@ -9,7 +9,7 @@ import com.example.aarrowapp.database.daos.EmployeeDao
 import com.example.aarrowapp.database.models.AuditEntity
 import com.example.aarrowapp.database.models.EmployeeEntity
 
-@Database(entities = [EmployeeEntity::class, AuditEntity::class], version = 1)
+@Database(entities = [EmployeeEntity::class, AuditEntity::class], version = 2)
 abstract class AArrowRoomDatabase : RoomDatabase() {
 
     //abstract "getter" method for each @Dao
@@ -30,7 +30,7 @@ abstract class AArrowRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     AArrowRoomDatabase::class.java,
                     "aarrow_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }

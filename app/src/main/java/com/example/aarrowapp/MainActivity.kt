@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.example.aarrowapp.ui.main.SectionsPagerAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -32,12 +33,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == newEmployeeRequestCode && resultCode == Activity.RESULT_OK) {
-            //todo: get the new employee name from the Intent Extra and insert it into the DB by using View Model
-            Toast.makeText(applicationContext, "Employee saved.", Toast.LENGTH_LONG).show()
-        } else {
-            Toast.makeText(applicationContext, "Employee not saved.", Toast.LENGTH_LONG).show()
+        for (fragment: Fragment in supportFragmentManager.fragments) {
+            fragment.onActivityResult(requestCode, resultCode, data)
         }
 
     }
