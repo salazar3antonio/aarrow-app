@@ -2,14 +2,13 @@ package com.example.aarrowapp
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.database.models.EmployeeEntity
 
-class EmployeeListAdapter internal constructor(context: Context) :
-    RecyclerView.Adapter<EmployeeListAdapter.EmployeeViewHolder>() {
+class EmployeeListAdapter internal constructor(val context: Context) :
+    RecyclerView.Adapter<EmployeeViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var employees = emptyList<EmployeeEntity>()
@@ -26,16 +25,16 @@ class EmployeeListAdapter internal constructor(context: Context) :
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
         val current = employees[position]
         holder.employeeItemView.text = current.employeeName
+        holder.listItem.setOnClickListener {
+            Toast.makeText(context, "Click", Toast.LENGTH_LONG).show()
+            //todo when you click on listItem open up detailed activity of the EmployeeEntity
+        }
+
     }
 
     internal fun setEmployees(employees: List<EmployeeEntity>) {
         this.employees = employees
         notifyDataSetChanged()
     }
-
-    inner class EmployeeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val employeeItemView: TextView = itemView.findViewById(R.id.tv_employee_name)
-    }
-
 
 }
