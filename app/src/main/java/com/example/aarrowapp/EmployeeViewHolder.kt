@@ -7,6 +7,5 @@ import androidx.recyclerview.widget.RecyclerView
 class EmployeeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val employeeItemView: TextView = itemView.findViewById(R.id.tv_employee_name)
-    val listItem: View = itemView
 
 }

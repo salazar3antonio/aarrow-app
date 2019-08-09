@@ -15,7 +15,7 @@ class NewEmployeeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_employee)
+        setContentView(R.layout.activity_employee_new)
 
         editEmployeeName = findViewById(R.id.et_employee_name)
         saveButton = findViewById(R.id.btn_save_employee)

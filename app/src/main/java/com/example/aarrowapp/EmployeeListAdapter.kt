@@ -1,11 +1,15 @@
 package com.example.aarrowapp
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.database.models.EmployeeEntity
+import kotlinx.android.synthetic.main.activity_employee_profile.view.*
 
 class EmployeeListAdapter internal constructor(val context: Context) :
     RecyclerView.Adapter<EmployeeViewHolder>() {
@@ -25,9 +29,9 @@ class EmployeeListAdapter internal constructor(val context: Context) :
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
         val current = employees[position]
         holder.employeeItemView.text = current.employeeName
-        holder.listItem.setOnClickListener {
-            Toast.makeText(context, "Click", Toast.LENGTH_LONG).show()
-            //todo when you click on listItem open up detailed activity of the EmployeeEntity
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, EmployeeProfileActivity::class.java)
+            context.startActivity(intent)
         }
 
     }
