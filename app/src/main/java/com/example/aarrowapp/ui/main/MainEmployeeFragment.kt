@@ -3,7 +3,6 @@ package com.example.aarrowapp.ui.main
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +12,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.EmployeeListAdapter
-import com.example.aarrowapp.MainActivity
 import com.example.aarrowapp.MainActivity.Companion.newEmployeeRequestCode
 import com.example.aarrowapp.NewEmployeeActivity.Companion.EXTRA_EMPLOYEE_NAME
 import com.example.aarrowapp.R
-import com.example.aarrowapp.database.EmployeeViewModel
+import com.example.aarrowapp.MainEmployeesViewModel
 import com.example.aarrowapp.database.models.EmployeeEntity
 
 public class MainEmployeeFragment : androidx.fragment.app.Fragment() {
@@ -25,7 +23,7 @@ public class MainEmployeeFragment : androidx.fragment.app.Fragment() {
     //newInstance w/ bundle for this Fragment
     //RecyclerView of EmployeeEntity list items
     //Adapter of Employees List. Should be from Room DB
-    private lateinit var employeeViewModel: EmployeeViewModel
+    private lateinit var mainEmployeesViewModel: MainEmployeesViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -35,11 +33,10 @@ public class MainEmployeeFragment : androidx.fragment.app.Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        employeeViewModel = ViewModelProviders.of(this).get(EmployeeViewModel::class.java)
-        employeeViewModel.allEmployees.observe(this, Observer { employees ->
+        mainEmployeesViewModel = ViewModelProviders.of(this).get(MainEmployeesViewModel::class.java)
+        mainEmployeesViewModel.allEmployees.observe(this, Observer { employees ->
             employees?.let { adapter.setEmployees(it) }
         })
-
         return view
     }
 
@@ -53,7 +50,7 @@ public class MainEmployeeFragment : androidx.fragment.app.Fragment() {
                     null, null, null,
                     null, null
                 )
-                employeeViewModel.insert(employee)
+                mainEmployeesViewModel.insert(employee)
                 Toast.makeText(this.context, "Employee " + employee.employeeName + " saved.", Toast.LENGTH_LONG).show()
             }
         } else {

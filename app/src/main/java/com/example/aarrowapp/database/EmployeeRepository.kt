@@ -14,5 +14,10 @@ class EmployeeRepository(private val employeeDao: EmployeeDao) {
         employeeDao.insert(employeeEntity)
     }
 
+    fun getEmployeeByUid(uid: Int?): LiveData<EmployeeEntity> {
+        return employeeDao.loadEmployeeByUid(uid)
+    }
+
+
 
 }

@@ -2,6 +2,7 @@ package com.example.aarrowapp
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -28,9 +29,11 @@ class EmployeeListAdapter internal constructor(val context: Context) :
 
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
         val current = employees[position]
+        val uid = current.uid
         holder.employeeItemView.text = current.employeeName
         holder.itemView.setOnClickListener {
             val intent = Intent(context, EmployeeProfileActivity::class.java)
+            intent.putExtra(EMP_UID, uid)
             context.startActivity(intent)
         }
 
@@ -40,5 +43,10 @@ class EmployeeListAdapter internal constructor(val context: Context) :
         this.employees = employees
         notifyDataSetChanged()
     }
+
+    companion object {
+        const val EMP_UID = "employeeUid"
+    }
+
 
 }

@@ -1,14 +1,16 @@
-package com.example.aarrowapp.database
+package com.example.aarrowapp
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.aarrowapp.database.AArrowRoomDatabase
+import com.example.aarrowapp.database.EmployeeRepository
 import com.example.aarrowapp.database.models.EmployeeEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class EmployeeViewModel(application: Application) : AndroidViewModel(application) {
+class MainEmployeesViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: EmployeeRepository
 
