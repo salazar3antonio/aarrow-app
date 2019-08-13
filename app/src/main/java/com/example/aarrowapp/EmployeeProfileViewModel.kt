@@ -2,15 +2,20 @@ package com.example.aarrowapp
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.aarrowapp.database.AArrowRoomDatabase
+import androidx.lifecycle.viewModelScope
 import com.example.aarrowapp.database.EmployeeRepository
 import com.example.aarrowapp.database.models.EmployeeEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class EmployeeProfileViewModel(
-    employeeRepository: EmployeeRepository,
-    employeeUid: Int,
+    val employeeRepository: EmployeeRepository,
+    val employeeUid: Int,
     val employee: LiveData<EmployeeEntity> = employeeRepository.getEmployeeByUid(employeeUid)
 ) : ViewModel() {
 
+    fun delete(employee: EmployeeEntity) = viewModelScope.launch(Dispatchers.IO) {
+        employeeRepository.deleteEmployee(employee)
+    }
 
 }

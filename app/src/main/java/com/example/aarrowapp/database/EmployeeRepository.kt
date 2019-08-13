@@ -11,13 +11,17 @@ class EmployeeRepository(private val employeeDao: EmployeeDao) {
 
     @WorkerThread
     suspend fun insertEmployee(employeeEntity: EmployeeEntity) {
-        employeeDao.insert(employeeEntity)
+        employeeDao.insertEmployee(employeeEntity)
     }
 
     fun getEmployeeByUid(uid: Int?): LiveData<EmployeeEntity> {
         return employeeDao.loadEmployeeByUid(uid)
     }
 
+    @WorkerThread
+    suspend fun deleteEmployee(employeeEntity: EmployeeEntity) {
+        employeeDao.deleteEmployee(employeeEntity)
+    }
 
 
 }

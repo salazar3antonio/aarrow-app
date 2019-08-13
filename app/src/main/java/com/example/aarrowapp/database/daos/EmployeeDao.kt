@@ -17,7 +17,9 @@ interface EmployeeDao {
     fun loadEmployeeByUid(uid: Int?): LiveData<EmployeeEntity>
 
     @Insert
-    suspend fun insert(employee: EmployeeEntity)
+    suspend fun insertEmployee(employee: EmployeeEntity)
 
+    @Delete
+    fun deleteEmployee(employeeEntity: EmployeeEntity)
 
 }

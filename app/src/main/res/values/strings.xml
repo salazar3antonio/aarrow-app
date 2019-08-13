@@ -2,4 +2,5 @@
     <string name="app_name">AArrow App</string>
     <string name="tab_main_employees">Employees</string>
     <string name="tab_main_schedule">Schedule</string>
+    <string name="menu_item_text_delete">Delete</string>
 </resources>

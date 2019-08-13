@@ -22,7 +22,7 @@ class MainEmployeesViewModel(application: Application) : AndroidViewModel(applic
         allEmployees = repository.allEmployees
     }
 
-    //viewModelScope.launch makes sure the insert method is not launched on the main thread
+    //viewModelScope.launch makes sure the insertEmployee method is not launched on the main thread
     fun insert(employee: EmployeeEntity) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertEmployee(employee)
     }

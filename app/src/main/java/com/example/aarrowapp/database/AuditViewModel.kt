@@ -20,7 +20,7 @@ class AuditViewModel(application: Application) : AndroidViewModel(application) {
         allAudits = repository.allAudits
     }
 
-    //viewModelScope.launch makes sure the insert method is not launched on the main thread
+    //viewModelScope.launch makes sure the insertEmployee method is not launched on the main thread
     fun insert(audit: AuditEntity) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertAudit(audit)
     }
