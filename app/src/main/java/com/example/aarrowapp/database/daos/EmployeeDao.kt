@@ -1,10 +1,7 @@
 package com.example.aarrowapp.database.daos
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.aarrowapp.database.models.EmployeeEntity
 
 @Dao
@@ -21,5 +18,8 @@ interface EmployeeDao {
 
     @Delete
     fun deleteEmployee(employeeEntity: EmployeeEntity)
+
+    @Update
+    fun updateEmployeeProfile(employeeEntity: EmployeeEntity)
 
 }

@@ -19,8 +19,13 @@ class EmployeeRepository(private val employeeDao: EmployeeDao) {
     }
 
     @WorkerThread
-    suspend fun deleteEmployee(employeeEntity: EmployeeEntity) {
+    fun deleteEmployee(employeeEntity: EmployeeEntity) {
         employeeDao.deleteEmployee(employeeEntity)
+    }
+
+    @WorkerThread
+    fun updateEmployee(employeeEntity: EmployeeEntity) {
+        employeeDao.updateEmployeeProfile(employeeEntity)
     }
 
 

@@ -25,6 +25,9 @@
             android:label="New Employee" />
         <activity android:name=".EmployeeProfileActivity"
             android:label="Employee Profile"/>
+        <activity android:name=".EmployeeEditProfile"
+            android:label="Edit Profile"/>
+        />
     </application>
 
 </manifest>

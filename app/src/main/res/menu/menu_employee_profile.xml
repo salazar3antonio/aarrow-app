@@ -2,6 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/mi_edit_employee_profile"
+        android:title="@string/menu_text_edit_profile" />
+
+    <item
         android:id="@+id/mi_delete_employee_profile"
         android:title="@string/menu_item_text_delete" />
 </menu>

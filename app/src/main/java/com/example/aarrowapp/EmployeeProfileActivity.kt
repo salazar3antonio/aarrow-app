@@ -1,5 +1,6 @@
 package com.example.aarrowapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -20,16 +21,17 @@ class EmployeeProfileActivity : AppCompatActivity() {
     private lateinit var mEmployeeEntity: EmployeeEntity
     private lateinit var mEmployeeViewModel: EmployeeProfileViewModel
     private lateinit var mEmployeeNameTextView: TextView
+    private var mEmployeeUid: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_employee_profile)
 
-        val uid = intent.getIntExtra(EMP_UID, 0)
-        mEmployeeNameTextView = findViewById<TextView>(R.id.tv_employee_name)
+        mEmployeeUid = intent.getIntExtra(EMP_UID, 0)
+        mEmployeeNameTextView = findViewById(R.id.tv_employee_name)
         val employeeDao = AArrowRoomDatabase.getDatabase(application).employeeDao()
         val repository = EmployeeRepository(employeeDao)
-        val factory = EmployeeProfileViewModelFactory(repository, uid)
+        val factory = EmployeeProfileViewModelFactory(repository, mEmployeeUid)
 
         mEmployeeViewModel = ViewModelProviders.of(this, factory).get(EmployeeProfileViewModel::class.java)
         mEmployeeViewModel.employee.observe(this, Observer {
@@ -54,6 +56,12 @@ class EmployeeProfileActivity : AppCompatActivity() {
                 Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
                 mEmployeeViewModel.delete(mEmployeeEntity)
                 finish()
+                return true
+            }
+            R.id.mi_edit_employee_profile -> {
+                val editIntent = Intent(this, EmployeeEditProfile::class.java)
+                editIntent.putExtra(EMP_UID, mEmployeeUid)
+                startActivity(editIntent)
                 return true
             }
         }

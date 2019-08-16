@@ -18,4 +18,8 @@ class EmployeeProfileViewModel(
         employeeRepository.deleteEmployee(employee)
     }
 
+    fun update(employee: EmployeeEntity) = viewModelScope.launch(Dispatchers.IO) {
+        employeeRepository.updateEmployee(employee)
+    }
+
 }
