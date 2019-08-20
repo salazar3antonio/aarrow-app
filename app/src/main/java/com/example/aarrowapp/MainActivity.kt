@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.example.aarrowapp.ui.main.SectionsPagerAdapter
+import com.example.aarrowapp.ui.main.MainSectionsPagerAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 
@@ -15,14 +15,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = findViewById(R.id.view_pager)
-        viewPager.adapter = sectionsPagerAdapter
+        val mainSectionTitles = this.resources.getStringArray(R.array.sa_main_tabs)
+        val sectionsPagerAdapter = MainSectionsPagerAdapter(supportFragmentManager, mainSectionTitles)
+        val mainViewPager: ViewPager = findViewById(R.id.vp_main)
+        mainViewPager.adapter = sectionsPagerAdapter
 
-        val tabs: TabLayout = findViewById(R.id.tabs)
-        tabs.setupWithViewPager(viewPager)
+        val tabs: TabLayout = findViewById(R.id.tl_main_tabs)
+        tabs.setupWithViewPager(mainViewPager)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
+        val fab: FloatingActionButton = findViewById(R.id.fab_new_employee)
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity, NewEmployeeActivity::class.java)
             startActivityForResult(intent, newEmployeeRequestCode)

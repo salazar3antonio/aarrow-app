@@ -4,4 +4,20 @@
     <string name="tab_main_schedule">Schedule</string>
     <string name="menu_item_text_delete">Delete Employee</string>
     <string name="menu_text_edit_profile">Edit Employee</string>
+    <string name="new_audit">New Audit</string>
+
+    <string-array name="sa_main_tabs">
+        <item>Employees</item>
+        <item>Schedule</item>
+    </string-array>
+
+    <string-array name="sa_audit_tabs">
+        <item>Information</item>
+        <item>Appearance</item>
+        <item>Advertising</item>
+        <item>Energy</item>
+        <item>Technical</item>
+        <item>Submission</item>
+    </string-array>
+
 </resources>

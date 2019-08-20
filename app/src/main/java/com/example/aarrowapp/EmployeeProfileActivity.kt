@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ class EmployeeProfileActivity : AppCompatActivity() {
     private lateinit var mEmployeeEntity: EmployeeEntity
     private lateinit var mEmployeeViewModel: EmployeeProfileViewModel
     private lateinit var mEmployeeNameTextView: TextView
+    private lateinit var mEmployeeAuditsButton: Button
     private var mEmployeeUid: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +31,7 @@ class EmployeeProfileActivity : AppCompatActivity() {
 
         mEmployeeUid = intent.getIntExtra(EMP_UID, 0)
         mEmployeeNameTextView = findViewById(R.id.tv_employee_name)
+        mEmployeeAuditsButton = findViewById(R.id.btn_employee_audits)
         val employeeDao = AArrowRoomDatabase.getDatabase(application).employeeDao()
         val repository = EmployeeRepository(employeeDao)
         val factory = EmployeeProfileViewModelFactory(repository, mEmployeeUid)
@@ -40,6 +43,13 @@ class EmployeeProfileActivity : AppCompatActivity() {
                 updateUI(it)
             }
         })
+
+        //this button launches the Audits list of the currently selected Employee.
+        mEmployeeAuditsButton.setOnClickListener {
+            val intent = Intent(this, EmployeeAuditsActivity::class.java)
+            intent.putExtra(EMP_UID, mEmployeeUid)
+            startActivity(intent)
+        }
 
     }
 
@@ -53,7 +63,7 @@ class EmployeeProfileActivity : AppCompatActivity() {
 
         when (item?.itemId) {
             R.id.mi_delete_employee_profile -> {
-                Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Deleted " + mEmployeeEntity.employeeName, Toast.LENGTH_SHORT).show()
                 mEmployeeViewModel.delete(mEmployeeEntity)
                 finish()
                 return true
@@ -70,11 +80,7 @@ class EmployeeProfileActivity : AppCompatActivity() {
 
     }
 
-    fun updateUI(employeeEntity: EmployeeEntity) {
-        if (employeeEntity == null) {
-            return
-        }
+    private fun updateUI(employeeEntity: EmployeeEntity) {
         mEmployeeNameTextView.text = employeeEntity.employeeName
-
     }
 }

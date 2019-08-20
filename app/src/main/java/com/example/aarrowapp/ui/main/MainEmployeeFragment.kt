@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +19,7 @@ import com.example.aarrowapp.R
 import com.example.aarrowapp.MainEmployeesViewModel
 import com.example.aarrowapp.database.models.EmployeeEntity
 
-public class MainEmployeeFragment : androidx.fragment.app.Fragment() {
+class MainEmployeeFragment : Fragment() {
 
     //newInstance w/ bundle for this Fragment
     //RecyclerView of EmployeeEntity list items

@@ -23,10 +23,18 @@
         <activity
             android:name=".NewEmployeeActivity"
             android:label="New Employee" />
-        <activity android:name=".EmployeeProfileActivity"
-            android:label="Employee Profile"/>
-        <activity android:name=".EmployeeEditProfile"
-            android:label="Edit Profile"/>
+        <activity
+            android:name=".EmployeeProfileActivity"
+            android:label="Employee Profile" />
+        <activity
+            android:name=".EmployeeEditProfile"
+            android:label="Edit Profile" />
+        <activity
+            android:name=".EmployeeAuditsActivity"
+            android:label="Employee Audits" />
+        <activity
+            android:name=".NewAuditActivity"
+            android:label="New Audit" />
         />
     </application>
 

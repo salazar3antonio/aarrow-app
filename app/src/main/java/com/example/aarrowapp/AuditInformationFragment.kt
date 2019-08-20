@@ -1,27 +1,24 @@
-package com.example.aarrowapp.ui.main
+package com.example.aarrowapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.aarrowapp.R
+import androidx.fragment.app.Fragment
 
-class MainScheduleFragment : androidx.fragment.app.Fragment() {
+class AuditInformationFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        return inflater.inflate(R.layout.fragment_main_schedule, container, false)
-
+        return inflater.inflate(R.layout.fragment_audit_information, container, false)
     }
 
     companion object {
 
-        private const val ARG_SECTION_NUMBER = "main_schedule_section_number"
+        private const val ARG_SECTION_NUMBER = "audit_information_fragment_section_number"
 
-        fun newInstance(sectionNumber: Int): MainScheduleFragment {
+        fun newInstance(sectionNumber: Int): AuditInformationFragment {
             //we are returning a fragment
-            return MainScheduleFragment().apply {
+            return AuditInformationFragment().apply {
                 //applying our arguments as a bundle object to the fragment
                 arguments = Bundle().apply {
                     //applying our key/value pair by invoking the putInt method and passing in the constant String value and section number
