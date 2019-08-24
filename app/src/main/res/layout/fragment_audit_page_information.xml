@@ -6,6 +6,6 @@
         android:id="@+id/tv_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Information Tab"
+        android:text="@string/audit_information_page"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 </LinearLayout>

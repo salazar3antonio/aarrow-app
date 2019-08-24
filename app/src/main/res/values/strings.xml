@@ -5,6 +5,12 @@
     <string name="menu_item_text_delete">Delete Employee</string>
     <string name="menu_text_edit_profile">Edit Employee</string>
     <string name="new_audit">New Audit</string>
+    <string name="audit_information_page">Information Page</string>
+    <string name="audit_advertising_page">Advertising Page</string>
+    <string name="audit_appearance_page">Appearance Page</string>
+    <string name="audit_energy_page">Energy Page</string>
+    <string name="audit_submission_page">Submission Page</string>
+    <string name="audit_technical_page">Technical Page</string>
 
     <string-array name="sa_main_tabs">
         <item>Employees</item>

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.database.models.EmployeeEntity
 import kotlinx.android.synthetic.main.activity_employee_profile.view.*
 
-class EmployeeListAdapter internal constructor(val context: Context) :
+class EmployeeListAdapter internal constructor(private val context: Context) :
     RecyclerView.Adapter<EmployeeViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)

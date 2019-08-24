@@ -12,7 +12,11 @@ class NewAuditActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_audit)
 
         val auditSectionTitles = this.resources.getStringArray(R.array.sa_audit_tabs)
-        val auditSectionsPagerAdapter = AuditSectionsPagerAdapter(supportFragmentManager, auditSectionTitles)
+        val auditSectionsPagerAdapter =
+            AuditSectionsPagerAdapter(
+                supportFragmentManager,
+                auditSectionTitles
+            )
         val newAuditViewPager: ViewPager = findViewById(R.id.vp_new_audit)
         newAuditViewPager.adapter = auditSectionsPagerAdapter
 
