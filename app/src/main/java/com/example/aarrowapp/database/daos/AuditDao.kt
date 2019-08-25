@@ -10,7 +10,7 @@ import com.example.aarrowapp.database.models.AuditEntity
 interface AuditDao {
 
     @Query ("SELECT * FROM audit_table ORDER BY date ASC")
-    fun allAuditsOfEmployee(): LiveData<List<AuditEntity>>
+    fun allAudits(): LiveData<List<AuditEntity>>
 
     @Insert
     suspend fun insertAudit(audit: AuditEntity)

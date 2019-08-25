@@ -2,17 +2,12 @@ package com.example.aarrowapp
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.database.models.EmployeeEntity
-import kotlinx.android.synthetic.main.activity_employee_profile.view.*
 
-class EmployeeListAdapter internal constructor(private val context: Context) :
+class EmployeeListAdapter(private val context: Context) :
     RecyclerView.Adapter<EmployeeViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -28,9 +23,9 @@ class EmployeeListAdapter internal constructor(private val context: Context) :
     }
 
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
-        val current = employees[position]
-        val uid = current.uid
-        holder.employeeItemView.text = current.employeeName
+        val employee = employees[position]
+        val uid = employee.uid
+        holder.employeeName.text = employee.employeeName
         holder.itemView.setOnClickListener {
             val intent = Intent(context, EmployeeProfileActivity::class.java)
             intent.putExtra(EMP_UID, uid)

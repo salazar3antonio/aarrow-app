@@ -11,15 +11,15 @@ import androidx.appcompat.app.AppCompatActivity
 class NewEmployeeActivity : AppCompatActivity() {
 
     private lateinit var editEmployeeName: EditText
-    private lateinit var saveButton: Button
+    private lateinit var saveEmployeeButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_employee_new)
 
         editEmployeeName = findViewById(R.id.et_employee_name)
-        saveButton = findViewById(R.id.btn_save_employee)
-        saveButton.setOnClickListener {
+        saveEmployeeButton = findViewById(R.id.btn_save_employee)
+        saveEmployeeButton.setOnClickListener {
 
             val resultIntent = Intent()
 

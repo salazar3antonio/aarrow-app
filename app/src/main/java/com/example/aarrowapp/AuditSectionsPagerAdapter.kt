@@ -18,7 +18,6 @@ class AuditSectionsPagerAdapter(
             3 -> EnergyPageFragment.newInstance(position)
             4 -> TechnicalPageFragment.newInstance(position)
             5 -> SubmissionPageFragment.newInstance(position)
-            //todo: create all Audit Fragment pages for the entire Audit report
             else -> InformationPageFragment.newInstance(position)
         }
     }

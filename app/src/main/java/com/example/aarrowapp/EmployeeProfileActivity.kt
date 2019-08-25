@@ -2,6 +2,7 @@ package com.example.aarrowapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -36,7 +37,8 @@ class EmployeeProfileActivity : AppCompatActivity() {
         val repository = EmployeeRepository(employeeDao)
         val factory = EmployeeProfileViewModelFactory(repository, mEmployeeUid)
 
-        mEmployeeViewModel = ViewModelProviders.of(this, factory).get(EmployeeProfileViewModel::class.java)
+        mEmployeeViewModel =
+            ViewModelProviders.of(this, factory).get(EmployeeProfileViewModel::class.java)
         mEmployeeViewModel.employee.observe(this, Observer {
             if (it != null) {
                 mEmployeeEntity = it
@@ -63,7 +65,8 @@ class EmployeeProfileActivity : AppCompatActivity() {
 
         when (item?.itemId) {
             R.id.mi_delete_employee_profile -> {
-                Toast.makeText(this, "Deleted " + mEmployeeEntity.employeeName, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Deleted " + mEmployeeEntity.employeeName, Toast.LENGTH_SHORT)
+                    .show()
                 mEmployeeViewModel.delete(mEmployeeEntity)
                 finish()
                 return true

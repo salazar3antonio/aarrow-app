@@ -10,19 +10,21 @@ import kotlinx.coroutines.launch
 
 class AuditViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: AuditRepository
+    private val auditRepository: AuditRepository
 
     val allAudits: LiveData<List<AuditEntity>>
 
     init {
         val auditDao = AArrowRoomDatabase.getDatabase(application).auditDao()
-        repository = AuditRepository(auditDao)
-        allAudits = repository.allAudits
+        auditRepository = AuditRepository(auditDao)
+        allAudits = auditRepository.allAudits
     }
 
     //viewModelScope.launch makes sure the insertEmployee method is not launched on the main thread
     fun insert(audit: AuditEntity) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insertAudit(audit)
+        auditRepository.insertAudit(audit)
     }
+
+    //todo: create function that gets all Audits of one Employee. Pass in Employee Id
 
 }
