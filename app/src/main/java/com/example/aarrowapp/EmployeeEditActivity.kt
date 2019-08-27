@@ -11,7 +11,7 @@ import com.example.aarrowapp.database.EmployeeRepository
 import com.example.aarrowapp.database.models.EmployeeEntity
 import com.google.android.material.textfield.TextInputEditText
 
-class EmployeeEditProfile : AppCompatActivity() {
+class EmployeeEditActivity : AppCompatActivity() {
 
     private var mEmployeeUid: Int = 0
     private lateinit var mEmployeeEntity: EmployeeEntity

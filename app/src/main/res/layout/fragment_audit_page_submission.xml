@@ -11,4 +11,11 @@
         android:text="@string/audit_submission_page"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
+    <Button
+        android:id="@+id/btn_save_audit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Audit" />
+
+
 </LinearLayout>

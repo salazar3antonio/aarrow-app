@@ -2,7 +2,6 @@ package com.example.aarrowapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -72,7 +71,7 @@ class EmployeeProfileActivity : AppCompatActivity() {
                 return true
             }
             R.id.mi_edit_employee_profile -> {
-                val editIntent = Intent(this, EmployeeEditProfile::class.java)
+                val editIntent = Intent(this, EmployeeEditActivity::class.java)
                 editIntent.putExtra(EMP_UID, mEmployeeUid)
                 startActivity(editIntent)
                 return true

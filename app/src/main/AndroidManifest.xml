@@ -27,7 +27,7 @@
             android:name=".EmployeeProfileActivity"
             android:label="Employee Profile" />
         <activity
-            android:name=".EmployeeEditProfile"
+            android:name=".EmployeeEditActivity"
             android:label="Edit Profile" />
         <activity
             android:name=".EmployeeAuditsActivity"
