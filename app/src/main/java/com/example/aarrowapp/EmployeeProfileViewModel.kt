@@ -14,11 +14,11 @@ class EmployeeProfileViewModel(
     val employee: LiveData<EmployeeEntity> = employeeRepository.getEmployeeByUid(employeeUid)
 ) : ViewModel() {
 
-    fun delete(employee: EmployeeEntity) = viewModelScope.launch(Dispatchers.IO) {
+    fun deleteEmployee(employee: EmployeeEntity) = viewModelScope.launch(Dispatchers.IO) {
         employeeRepository.deleteEmployee(employee)
     }
 
-    fun update(employee: EmployeeEntity) = viewModelScope.launch(Dispatchers.IO) {
+    fun updateEmployee(employee: EmployeeEntity) = viewModelScope.launch(Dispatchers.IO) {
         employeeRepository.updateEmployee(employee)
     }
 

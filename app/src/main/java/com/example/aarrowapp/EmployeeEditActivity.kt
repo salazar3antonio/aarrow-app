@@ -41,7 +41,7 @@ class EmployeeEditActivity : AppCompatActivity() {
 
         mSaveButton.setOnClickListener({
             mEmployeeEntity.employeeName = mEmployeeNameEditText.text.toString()
-            mEmployeeViewModel.update(mEmployeeEntity)
+            mEmployeeViewModel.updateEmployee(mEmployeeEntity)
             finish()
         })
 

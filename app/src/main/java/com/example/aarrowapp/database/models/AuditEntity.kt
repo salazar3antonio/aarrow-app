@@ -1,5 +1,6 @@
 package com.example.aarrowapp.database.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
@@ -18,6 +19,7 @@ There is a one-to-many relationship between the EmployeeEntity and an AuditEntit
 )
 data class AuditEntity(
     @PrimaryKey(autoGenerate = true) var uid: Int?,
+    @ColumnInfo(index = true)
     var employeeId: Int?,
     var employeeName: String?,
     var clientLocation: String?,

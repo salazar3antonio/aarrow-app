@@ -3,7 +3,6 @@ package com.example.aarrowapp
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.database.models.AuditEntity
 

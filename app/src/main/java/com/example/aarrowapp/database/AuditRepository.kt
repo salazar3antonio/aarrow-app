@@ -1,6 +1,5 @@
 package com.example.aarrowapp.database
 
-import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.example.aarrowapp.database.daos.AuditDao
@@ -12,8 +11,11 @@ class AuditRepository(private val auditDao: AuditDao) {
 
     @WorkerThread
     suspend fun insertAudit(auditEntity: AuditEntity) {
-        Log.v(TAG, "INSERT -> Audit Id: " + auditEntity.uid + " " + " Employee Name: " + auditEntity.employeeName + " Employee Id: " + auditEntity.employeeId)
         auditDao.insertAudit(auditEntity)
+    }
+
+    fun getAuditsByEmployeeId(uid: Int?): LiveData<List<AuditEntity>> {
+        return auditDao.loadAuditsByEmployeeId(uid)
     }
 
     companion object {

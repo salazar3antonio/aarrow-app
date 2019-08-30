@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.example.aarrowapp.EmployeeListAdapter.Companion.EMP_UID
 import com.example.aarrowapp.database.AArrowRoomDatabase
 import com.example.aarrowapp.database.EmployeeRepository
@@ -36,8 +36,7 @@ class EmployeeProfileActivity : AppCompatActivity() {
         val repository = EmployeeRepository(employeeDao)
         val factory = EmployeeProfileViewModelFactory(repository, mEmployeeUid)
 
-        mEmployeeViewModel =
-            ViewModelProviders.of(this, factory).get(EmployeeProfileViewModel::class.java)
+        mEmployeeViewModel = ViewModelProvider(this, factory).get(EmployeeProfileViewModel::class.java)
         mEmployeeViewModel.employee.observe(this, Observer {
             if (it != null) {
                 mEmployeeEntity = it
@@ -66,7 +65,7 @@ class EmployeeProfileActivity : AppCompatActivity() {
             R.id.mi_delete_employee_profile -> {
                 Toast.makeText(this, "Deleted " + mEmployeeEntity.employeeName, Toast.LENGTH_SHORT)
                     .show()
-                mEmployeeViewModel.delete(mEmployeeEntity)
+                mEmployeeViewModel.deleteEmployee(mEmployeeEntity)
                 finish()
                 return true
             }

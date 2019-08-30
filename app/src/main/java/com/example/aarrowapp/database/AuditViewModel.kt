@@ -25,6 +25,5 @@ class AuditViewModel(application: Application) : AndroidViewModel(application) {
         auditRepository.insertAudit(audit)
     }
 
-    //todo: create function that gets all Audits of one Employee. Pass in Employee Id
 
 }
