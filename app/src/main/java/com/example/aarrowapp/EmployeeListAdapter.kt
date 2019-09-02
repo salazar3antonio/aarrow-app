@@ -4,8 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.database.models.EmployeeEntity
+import com.example.aarrowapp.databinding.ListitemMainEmployeeBinding
 
 class EmployeeListAdapter(private val context: Context) :
     RecyclerView.Adapter<EmployeeViewHolder>() {
@@ -14,8 +17,8 @@ class EmployeeListAdapter(private val context: Context) :
     private var employees = emptyList<EmployeeEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {
-        val itemView = inflater.inflate(R.layout.listitem_main_employee, parent, false)
-        return EmployeeViewHolder(itemView)
+        val employeeBinding = DataBindingUtil.inflate<ListitemMainEmployeeBinding>(inflater, R.layout.listitem_main_employee, parent, false)
+        return EmployeeViewHolder(employeeBinding)
     }
 
     override fun getItemCount(): Int {
@@ -25,7 +28,7 @@ class EmployeeListAdapter(private val context: Context) :
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
         val employee = employees[position]
         val uid = employee.uid
-        holder.employeeName.text = employee.employeeName
+        holder.bind(employee)
         holder.itemView.setOnClickListener {
             val intent = Intent(context, EmployeeProfileActivity::class.java)
             intent.putExtra(EMP_UID, uid)
