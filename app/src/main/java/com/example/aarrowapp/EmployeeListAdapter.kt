@@ -17,7 +17,12 @@ class EmployeeListAdapter(private val context: Context) :
     private var employees = emptyList<EmployeeEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {
-        val employeeBinding = DataBindingUtil.inflate<ListitemMainEmployeeBinding>(inflater, R.layout.listitem_main_employee, parent, false)
+        val employeeBinding = DataBindingUtil.inflate<ListitemMainEmployeeBinding>(
+            inflater,
+            R.layout.listitem_main_employee,
+            parent,
+            false
+        )
         return EmployeeViewHolder(employeeBinding)
     }
 

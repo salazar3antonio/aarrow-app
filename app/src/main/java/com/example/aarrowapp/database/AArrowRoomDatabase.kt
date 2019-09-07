@@ -9,7 +9,7 @@ import com.example.aarrowapp.database.daos.EmployeeDao
 import com.example.aarrowapp.database.models.AuditEntity
 import com.example.aarrowapp.database.models.EmployeeEntity
 
-@Database(entities = [EmployeeEntity::class, AuditEntity::class], version = 4)
+@Database(entities = [EmployeeEntity::class, AuditEntity::class], version = 4, exportSchema = false)
 abstract class AArrowRoomDatabase : RoomDatabase() {
 
     //abstract "getter" method for each @Dao

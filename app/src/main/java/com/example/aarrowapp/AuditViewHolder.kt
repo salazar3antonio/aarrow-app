@@ -1,11 +1,13 @@
 package com.example.aarrowapp
 
-import android.view.View
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.aarrowapp.database.models.AuditEntity
+import com.example.aarrowapp.databinding.ListitemMainEmployeeAuditBinding
 
-class AuditViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class AuditViewHolder(private val auditBinding: ListitemMainEmployeeAuditBinding) : RecyclerView.ViewHolder(auditBinding.root) {
 
-    val employeeName: TextView = itemView.findViewById(R.id.tv_audit_employee_name)
-    val employeeId: TextView = itemView.findViewById(R.id.tv_audit_employee_id)
+    fun bind(auditEntity: AuditEntity) {
+        auditBinding.dataAuditEmployeeName = auditEntity.employeeName
+        auditBinding.dataAuditEmployeeId = auditEntity.employeeId
+    }
 }
