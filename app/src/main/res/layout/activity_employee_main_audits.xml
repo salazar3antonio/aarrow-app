@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/fab"
         app:layout_constraintBottom_toBottomOf="@+id/rv_employee_main_audits"
         app:layout_constraintEnd_toEndOf="@+id/rv_employee_main_audits"
         app:srcCompat="@drawable/ic_add_white_24dp" />
