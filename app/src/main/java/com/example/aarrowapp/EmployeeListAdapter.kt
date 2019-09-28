@@ -5,7 +5,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.database.models.EmployeeEntity
 import com.example.aarrowapp.databinding.ListitemMainEmployeeBinding
@@ -35,7 +34,7 @@ class EmployeeListAdapter(private val context: Context) :
         val uid = employee.uid
         holder.bind(employee)
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, EmployeeProfileActivity::class.java)
+            val intent = Intent(context, EmployeeDetailActivity::class.java)
             intent.putExtra(EMP_UID, uid)
             context.startActivity(intent)
         }

@@ -15,7 +15,7 @@ class EmployeeEditActivity : AppCompatActivity() {
 
     private var mEmployeeUid: Int = 0
     private lateinit var mEmployeeEntity: EmployeeEntity
-    private lateinit var mEmployeeViewModel: EmployeeProfileViewModel
+    private lateinit var mEmployeeDetailViewModel: EmployeeDetailViewModel
     private lateinit var mEmployeeNameEditText: TextInputEditText
     private lateinit var mSaveButton: Button
 
@@ -29,10 +29,10 @@ class EmployeeEditActivity : AppCompatActivity() {
 
         val employeeDao = AArrowRoomDatabase.getDatabase(application).employeeDao()
         val repository = EmployeeRepository(employeeDao)
-        val factory = EmployeeProfileViewModelFactory(repository, mEmployeeUid)
+        val factory = EmployeeDetailViewModelFactory(repository, mEmployeeUid)
 
-        mEmployeeViewModel = ViewModelProviders.of(this, factory).get(EmployeeProfileViewModel::class.java)
-        mEmployeeViewModel.employee.observe(this, Observer {
+        mEmployeeDetailViewModel = ViewModelProviders.of(this, factory).get(EmployeeDetailViewModel::class.java)
+        mEmployeeDetailViewModel.employee.observe(this, Observer {
             if (it != null) {
                 mEmployeeEntity = it
                 updateUI(it)
@@ -41,7 +41,7 @@ class EmployeeEditActivity : AppCompatActivity() {
 
         mSaveButton.setOnClickListener({
             mEmployeeEntity.employeeName = mEmployeeNameEditText.text.toString()
-            mEmployeeViewModel.updateEmployee(mEmployeeEntity)
+            mEmployeeDetailViewModel.updateEmployee(mEmployeeEntity)
             finish()
         })
 

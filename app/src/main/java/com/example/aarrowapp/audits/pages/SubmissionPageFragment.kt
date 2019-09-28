@@ -25,10 +25,10 @@ class SubmissionPageFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_audit_page_submission, container, false)
 
-        mSaveAuditButton = view.findViewById(R.id.btn_save_audit)
-        mSaveAuditButton.setOnClickListener {
-
-        }
+//        mSaveAuditButton = view.findViewById(R.id.btn_save_audit)
+//        mSaveAuditButton.setOnClickListener {
+//
+//        }
 
 
         return view

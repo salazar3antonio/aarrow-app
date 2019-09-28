@@ -24,7 +24,7 @@
             android:name=".NewEmployeeActivity"
             android:label="New Employee" />
         <activity
-            android:name=".EmployeeProfileActivity"
+            android:name=".EmployeeDetailActivity"
             android:label="Employee Profile" />
         <activity
             android:name=".EmployeeEditActivity"
@@ -35,6 +35,7 @@
         <activity
             android:name=".NewAuditActivity"
             android:label="New Audit" />
+        <activity android:name=".AuditActivity" />
     </application>
 
 </manifest>

@@ -10,8 +10,8 @@ interface EmployeeDao {
     @Query ("SELECT * FROM employee_table ORDER BY employeeName ASC")
     fun getAllEmployeesByName(): LiveData<List<EmployeeEntity>>
 
-    @Query ("SELECT * FROM employee_table WHERE uid LIKE :uid  ")
-    fun loadEmployeeByUid(uid: Int?): LiveData<EmployeeEntity>
+    @Query ("SELECT * FROM employee_table WHERE uid LIKE :uid")
+    fun getEmployeeByUid(uid: Int?): LiveData<EmployeeEntity>
 
     @Insert
     suspend fun insertEmployee(employee: EmployeeEntity)

@@ -3,17 +3,12 @@ package com.example.aarrowapp
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.example.aarrowapp.AuditListAdapter.Companion.AUDIT_UID
 import com.example.aarrowapp.EmployeeListAdapter.Companion.EMP_UID
-import com.example.aarrowapp.database.AArrowRoomDatabase
 import com.example.aarrowapp.database.AuditViewModel
-import com.example.aarrowapp.database.EmployeeRepository
 import com.example.aarrowapp.database.models.AuditEntity
-import com.example.aarrowapp.database.models.EmployeeEntity
 import com.google.android.material.tabs.TabLayout
 
 class NewAuditActivity : AppCompatActivity() {
@@ -39,7 +34,7 @@ class NewAuditActivity : AppCompatActivity() {
                 null, null, null, null, null, null, null, null, null,
                 null, null
             )
-            mAuditViewModel.insert(audit)
+            mAuditViewModel.insertAudit(audit)
         } else {
             Toast.makeText(this, "Audit UID: $mAuditUid", Toast.LENGTH_LONG).show()
         }

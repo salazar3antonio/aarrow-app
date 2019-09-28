@@ -298,6 +298,7 @@
     <string name="catches_qtext">Can they catch the sign?</string>
     <string name="freezes_qtext">Timely freezes for the audience?</string>
     <string name="audit_values">audit_values</string>
+    <string name="menu_text_delete_audit">Delete Audit</string>
 
 
 </resources>

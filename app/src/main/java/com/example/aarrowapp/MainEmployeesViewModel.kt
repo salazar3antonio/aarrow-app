@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.aarrowapp.database.AArrowRoomDatabase
 import com.example.aarrowapp.database.EmployeeRepository
+import com.example.aarrowapp.database.models.AuditEntity
 import com.example.aarrowapp.database.models.EmployeeEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

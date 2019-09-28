@@ -18,7 +18,7 @@ class EmployeeRepository(private val employeeDao: EmployeeDao) {
 
     fun getEmployeeByUid(uid: Int?): LiveData<EmployeeEntity> {
         Log.v(TAG, "Employee Id: " + uid.toString())
-        return employeeDao.loadEmployeeByUid(uid)
+        return employeeDao.getEmployeeByUid(uid)
     }
 
     @WorkerThread

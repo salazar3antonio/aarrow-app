@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -19,10 +18,10 @@ import com.example.aarrowapp.database.models.EmployeeEntity
 import com.example.aarrowapp.databinding.ActivityEmployeeProfileBinding
 
 
-class EmployeeProfileActivity : AppCompatActivity() {
+class EmployeeDetailActivity : AppCompatActivity() {
 
     private lateinit var mEmployeeEntity: EmployeeEntity
-    private lateinit var mEmployeeViewModel: EmployeeProfileViewModel
+    private lateinit var mEmployeeDetailViewModel: EmployeeDetailViewModel
     private lateinit var mEmployeeAuditsButton: Button
     private var mEmployeeUid: Int = 0
 
@@ -34,10 +33,10 @@ class EmployeeProfileActivity : AppCompatActivity() {
 
         val employeeDao = AArrowRoomDatabase.getDatabase(application).employeeDao()
         val repository = EmployeeRepository(employeeDao)
-        val factory = EmployeeProfileViewModelFactory(repository, mEmployeeUid)
+        val factory = EmployeeDetailViewModelFactory(repository, mEmployeeUid)
 
-        mEmployeeViewModel = ViewModelProvider(this, factory).get(EmployeeProfileViewModel::class.java)
-        mEmployeeViewModel.employee.observe(this, Observer {
+        mEmployeeDetailViewModel = ViewModelProvider(this, factory).get(EmployeeDetailViewModel::class.java)
+        mEmployeeDetailViewModel.employee.observe(this, Observer {
             if (it != null) {
                 mEmployeeEntity = it
                 binding.dataEmployeeName = mEmployeeEntity.employeeName
@@ -66,7 +65,7 @@ class EmployeeProfileActivity : AppCompatActivity() {
             R.id.mi_delete_employee_profile -> {
                 Toast.makeText(this, "Deleted " + mEmployeeEntity.employeeName, Toast.LENGTH_SHORT)
                     .show()
-                mEmployeeViewModel.deleteEmployee(mEmployeeEntity)
+                mEmployeeDetailViewModel.deleteEmployee(mEmployeeEntity)
                 finish()
                 return true
             }

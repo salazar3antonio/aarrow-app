@@ -8,7 +8,7 @@ import com.example.aarrowapp.database.models.EmployeeEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class EmployeeProfileViewModel(
+class EmployeeDetailViewModel(
     val employeeRepository: EmployeeRepository,
     val employeeUid: Int,
     val employee: LiveData<EmployeeEntity> = employeeRepository.getEmployeeByUid(employeeUid)
