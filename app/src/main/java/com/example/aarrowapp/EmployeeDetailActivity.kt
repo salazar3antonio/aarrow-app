@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -16,18 +15,19 @@ import com.example.aarrowapp.database.AArrowRoomDatabase
 import com.example.aarrowapp.database.EmployeeRepository
 import com.example.aarrowapp.database.models.EmployeeEntity
 import com.example.aarrowapp.databinding.ActivityEmployeeProfileBinding
+import com.example.aarrowapp.viewmodels.EmployeeDetailViewModel
 
 
 class EmployeeDetailActivity : AppCompatActivity() {
 
     private lateinit var mEmployeeEntity: EmployeeEntity
     private lateinit var mEmployeeDetailViewModel: EmployeeDetailViewModel
-    private lateinit var mEmployeeAuditsButton: Button
     private var mEmployeeUid: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityEmployeeProfileBinding = DataBindingUtil.setContentView(this, R.layout.activity_employee_profile)
+        val binding: ActivityEmployeeProfileBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_employee_profile)
 
         mEmployeeUid = intent.getIntExtra(EMP_UID, 0)
 
@@ -35,7 +35,8 @@ class EmployeeDetailActivity : AppCompatActivity() {
         val repository = EmployeeRepository(employeeDao)
         val factory = EmployeeDetailViewModelFactory(repository, mEmployeeUid)
 
-        mEmployeeDetailViewModel = ViewModelProvider(this, factory).get(EmployeeDetailViewModel::class.java)
+        mEmployeeDetailViewModel =
+            ViewModelProvider(this, factory).get(EmployeeDetailViewModel::class.java)
         mEmployeeDetailViewModel.employee.observe(this, Observer {
             if (it != null) {
                 mEmployeeEntity = it
@@ -43,9 +44,7 @@ class EmployeeDetailActivity : AppCompatActivity() {
             }
         })
 
-        //this button launches the Audits list of the currently selected Employee.
-        mEmployeeAuditsButton = findViewById(R.id.btn_employee_audits)
-        mEmployeeAuditsButton.setOnClickListener {
+        binding.btnEmployeeAudits.setOnClickListener {
             val intent = Intent(this, EmployeeAuditsActivity::class.java)
             intent.putExtra(EMP_UID, mEmployeeUid)
             startActivity(intent)
