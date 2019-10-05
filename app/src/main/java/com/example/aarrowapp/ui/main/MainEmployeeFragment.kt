@@ -10,14 +10,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.EmployeeListAdapter
 import com.example.aarrowapp.MainActivity.Companion.newEmployeeRequestCode
 import com.example.aarrowapp.NewEmployeeActivity.Companion.EXTRA_EMPLOYEE_NAME
 import com.example.aarrowapp.R
-import com.example.aarrowapp.MainEmployeesViewModel
+import com.example.aarrowapp.viewmodels.MainEmployeesViewModel
 import com.example.aarrowapp.database.models.EmployeeEntity
 
 class MainEmployeeFragment : Fragment() {

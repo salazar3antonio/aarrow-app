@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.aarrowapp.EmployeeListAdapter.Companion.EMP_UID
 import com.example.aarrowapp.database.AArrowRoomDatabase
 import com.example.aarrowapp.database.AuditRepository
-import com.example.aarrowapp.database.AuditViewModel
+import com.example.aarrowapp.viewmodels.EmployeeAuditsViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 /**

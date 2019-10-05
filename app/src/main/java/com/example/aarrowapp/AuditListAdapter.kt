@@ -33,7 +33,6 @@ class AuditListAdapter(private val context: Context) : RecyclerView.Adapter<Audi
         val audit = audits[position]
         holder.bind(audit)
         holder.itemView.setOnClickListener {
-//            val intent = Intent(context, NewAuditActivity::class.java)
             val intent = Intent(context, AuditActivity::class.java)
             intent.putExtra(AUDIT_UID, audit.uid)
             context.startActivity(intent)

@@ -3,6 +3,7 @@ package com.example.aarrowapp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.aarrowapp.database.AuditRepository
+import com.example.aarrowapp.viewmodels.EmployeeAuditsViewModel
 
 class EmployeeAuditsViewModelFactory(
     val auditRepository: AuditRepository,
@@ -10,6 +11,9 @@ class EmployeeAuditsViewModelFactory(
 ) : ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return EmployeeAuditsViewModel(auditRepository, employeeId) as T
+        return EmployeeAuditsViewModel(
+            auditRepository,
+            employeeId
+        ) as T
     }
 }

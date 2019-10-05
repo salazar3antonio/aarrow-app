@@ -7,8 +7,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.example.aarrowapp.AuditListAdapter.Companion.AUDIT_UID
 import com.example.aarrowapp.EmployeeListAdapter.Companion.EMP_UID
-import com.example.aarrowapp.database.AuditViewModel
+import com.example.aarrowapp.audit_ui.AuditPagesAdapter
 import com.example.aarrowapp.database.models.AuditEntity
+import com.example.aarrowapp.viewmodels.AuditViewModel
 import com.google.android.material.tabs.TabLayout
 
 class NewAuditActivity : AppCompatActivity() {
@@ -19,7 +20,7 @@ class NewAuditActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_audit)
+        setContentView(R.layout.activity_audit)
 
         mEmployeeUid = intent.getIntExtra(EMP_UID, 0)
         mAuditUid = intent.getIntExtra(AUDIT_UID, 0)
@@ -41,11 +42,11 @@ class NewAuditActivity : AppCompatActivity() {
 
         val auditSectionTitles = this.resources.getStringArray(R.array.sa_audit_tabs)
         val auditSectionsPagerAdapter =
-            AuditSectionsPagerAdapter(
+            AuditPagesAdapter(
                 supportFragmentManager,
                 auditSectionTitles
             )
-        val newAuditViewPager: ViewPager = findViewById(R.id.vp_new_audit)
+        val newAuditViewPager: ViewPager = findViewById(R.id.vp_audit)
         newAuditViewPager.adapter = auditSectionsPagerAdapter
 
         val auditTabs: TabLayout = findViewById(R.id.tl_new_audit_tabs)
