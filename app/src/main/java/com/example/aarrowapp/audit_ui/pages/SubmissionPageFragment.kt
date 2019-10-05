@@ -1,4 +1,4 @@
-package com.example.aarrowapp.audits.pages
+package com.example.aarrowapp.audit_ui.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.aarrowapp.R
-import com.example.aarrowapp.database.AuditViewModel
+import com.example.aarrowapp.viewmodels.AuditViewModel
 
 class SubmissionPageFragment : Fragment() {
 

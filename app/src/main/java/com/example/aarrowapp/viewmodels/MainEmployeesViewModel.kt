@@ -1,4 +1,4 @@
-package com.example.aarrowapp
+package com.example.aarrowapp.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

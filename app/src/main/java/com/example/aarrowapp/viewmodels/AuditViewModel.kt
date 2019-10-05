@@ -1,10 +1,12 @@
-package com.example.aarrowapp.database
+package com.example.aarrowapp.viewmodels
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.aarrowapp.database.AArrowRoomDatabase
+import com.example.aarrowapp.database.AuditRepository
 import com.example.aarrowapp.database.models.AuditEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,7 +18,9 @@ class AuditViewModel(application: Application) : AndroidViewModel(application) {
     val allAudits: LiveData<List<AuditEntity>>
 
     init {
-        val auditDao = AArrowRoomDatabase.getDatabase(application).auditDao()
+        val auditDao = AArrowRoomDatabase.getDatabase(
+            application
+        ).auditDao()
         auditRepository = AuditRepository(auditDao)
         allAudits = auditRepository.allAudits
     }

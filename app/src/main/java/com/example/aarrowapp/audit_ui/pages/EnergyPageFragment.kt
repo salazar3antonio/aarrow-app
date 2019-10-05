@@ -1,4 +1,4 @@
-package com.example.aarrowapp.audits.pages
+package com.example.aarrowapp.audit_ui.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater

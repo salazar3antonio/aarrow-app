@@ -1,11 +1,11 @@
-package com.example.aarrowapp
+package com.example.aarrowapp.audit_ui
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.aarrowapp.audits.pages.*
+import com.example.aarrowapp.audit_ui.pages.*
 
-class AuditSectionsPagerAdapter(
+class AuditPagesAdapter(
     fm: FragmentManager,
     private val mSectionTitles: Array<String>
 ) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
